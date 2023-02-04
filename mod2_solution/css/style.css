@@ -47,8 +47,8 @@
     }
     .menu-head-mobile{
         margin:30px 0px 10px 10px;
-        font-size: 20px;
-        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
+        font-family: fantasy
     }
 }
 
@@ -64,7 +64,7 @@
 
 .menu-head {
     margin: 30px;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
 }
 
@@ -73,12 +73,20 @@
     border: 1px solid black;
     margin: 10px;
     background-color: rgb(191, 184, 184);
+    height: 150px;
+    overflow: hidden;
+}
+
+.section:hover {
+    overflow: scroll;
+    cursor: row-resize;
 }
 
 .title {
-    float: right;
+    text-align: center;
     border: 1px solid black;
-    padding: 2px 30px 2px;
+    padding: 3px 15px 3px;
+    font-size: 20px;
 }
 
 .chicken {

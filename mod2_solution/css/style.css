@@ -35,11 +35,8 @@
 
 @media (max-width: 767px) {
     .col-sm-12 {
-        float: left;
-    }
-    
-    .col-sm-12 {
         width: 100%;
+        float: left;
     }
 
     .menu-head {

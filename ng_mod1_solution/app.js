@@ -1,5 +1,5 @@
 (function (){
-    'iser strict';
+    'user strict';
     angular.module('LunchCheck',[])
     .controller('LunchCheckController', LunchCheckController);
 

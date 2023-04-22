@@ -1,0 +1,20 @@
+<div class="container">
+    
+    <div ng-if="infoCtrl.user.favorite">
+        <h1>My Info</h1>
+        <span>Name: {{infoCtrl.user.firstName}} {{infoCtrl.user.lastName}}</span>
+        <br>
+        <span>Email: {{infoCtrl.user.email}}</span>
+        <br>
+        <span>Phone: {{infoCtrl.user.phone}}</span>
+        <br>
+        <span>Favorite Dish:</span>
+        <menu-item 
+        menu-item="infoCtrl.user.favorite" 
+        category-short-name="infoCtrl.user.cate">
+        </menu-item>
+    </div>
+
+    <div ng-show="!infoCtrl.user.favorite" >Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></div>
+</div>
+

@@ -113,6 +113,11 @@ h3.menu-item-title {
 }
 /* END SINGLE CATEGORY PAGE */
 
+/* Sign Up page */
+form input, button{
+  color: black;
+}
+/* End Sign Up page */
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {

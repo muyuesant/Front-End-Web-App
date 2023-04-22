@@ -1,0 +1,68 @@
+<div class="container">
+    <h2>Sign Up for Our Newsletter!</h2>
+    <form name='signForm' novalidate>
+        <input type="text" name="firstName" placeholder="Your firstName"
+            ng-model="signCtrl.user.firstName"
+            required
+            minlength="2"
+            ng-maxlength="50">
+        {{ signCtrl.user.firstName }}
+        <span
+          ng-if="(signForm.firstName.$error.minlength || signForm.firstName.$error.required) && signForm.firstName.$touched">
+          firstName must be at least 2 characters long
+        </span>
+        <span ng-if="signForm.firstName.$error.maxlength && signForm.firstName.$touched">
+          firstName must not be longer than 50 characters
+        </span>
+        <br>
+
+        <input type="text" name="lastName" placeholder="Your lastName"
+            ng-model="signCtrl.user.lastName"
+            required
+            minlength="2"
+            ng-maxlength="50">
+        {{ signCtrl.user.lastName }}
+        <span
+          ng-if="(signForm.lastName.$error.minlength || signForm.lastName.$error.required) && signForm.lastName.$touched">
+          lastName must be at least 2 characters long
+        </span>
+        <span ng-if="signForm.lastName.$error.maxlength && signForm.lastName.$touched">
+            lastName must not be longer than 50 characters
+        </span>
+        <br>
+
+        <input type="email" name="email" placeholder="Email"
+            ng-model="signCtrl.user.email"
+            required>
+        <span ng-if="signForm.email.$invalid && signForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+            ng-model="signCtrl.user.phone"
+            required
+            pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="signForm.phone.$invalid && signForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+        <input type="text" name="menuNumber" placeholder="Your favorite menu number"
+            ng-model="signCtrl.user.menuNumber"
+            required
+            pattern="([A-Za-z0-9]+)">
+        <span ng-if="signForm.menuNumber.$invalid && signForm.menuNumber.$touched">
+            Menu Number must be numeric alphabet.
+        </span>
+        <br>
+        <button
+            ng-disabled="signForm.$invalid"
+            ng-click="signCtrl.submit()">Submit
+        </button>
+    </form>
+
+    <div id="form-menu-error" ng-if="signCtrl.error">
+        No such menu number exists
+    </div>
+</div>

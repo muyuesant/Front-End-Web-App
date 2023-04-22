@@ -2,6 +2,7 @@
     "use strict";
     
     angular.module('public')
+    .directive('menuNumber', MenuNumberDirective)
     .controller('SignUpController', SignUpController);
     
     SignUpController.$inject = ['allMenu','UserService'];
@@ -46,6 +47,39 @@
 
       };
       
+    }
+
+    MenuNumberDirective.$inject = ['MenuService','$q'];
+    function MenuNumberDirective(MenuService,$q){
+        var ddo = {
+            require: 'ngModel',
+            link: function(scope, elm, attrs, ctrl) {
+                ctrl.$validators.menuNumber = function(modelValue, viewValue) {
+
+                    if(ctrl.$touched) {
+                        var allMenu= MenuService.getAllMenuItems();
+                        console.log("modelValue",modelValue)
+                        // console.log("allMenu",allMenu)
+                        if (modelValue) {
+                            var cate = modelValue.replace(/\d/g,"");
+                            var menu = allMenu[cate.toUpperCase()];
+                            // console.log("menu",menu);
+                            if (menu) {
+                                var found = menu.menu_items.find(element => element.short_name === modelValue.toUpperCase());
+                                // console.log("found",found);
+                                if (found) {
+                                    return true;
+                                }
+                            }     
+                        }
+                        // console.log("somthing wrong")
+                        return false
+                    }
+                    return true;
+                };                 
+            }
+        };
+        return ddo;
     }
     
     

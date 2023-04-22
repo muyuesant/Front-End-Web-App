@@ -51,9 +51,10 @@
         <input type="text" name="menuNumber" placeholder="Your favorite menu number"
             ng-model="signCtrl.user.menuNumber"
             required
-            pattern="([A-Za-z0-9]+)">
+            pattern="([A-Za-z0-9]+)"
+            menu-number>
         <span ng-if="signForm.menuNumber.$invalid && signForm.menuNumber.$touched">
-            Menu Number must be numeric alphabet.
+            No such menu number exists
         </span>
         <br>
         <button
